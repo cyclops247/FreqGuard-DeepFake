@@ -1,0 +1,45 @@
+                 ┌───────────────┐
+                 │   RGB Image   │
+                 └──────┬────────┘
+                        │
+                  XceptionNet
+                        │
+                     2048-dim
+                        │
+                        ▼
+
+                 ┌───────────────┐
+                 │   FFT Image   │
+                 └──────┬────────┘
+                        │
+                    ResNet18
+                        │
+                     512-dim
+                        │
+                        ▼
+
+                 ┌───────────────┐
+                 │   DWT Image   │
+                 └──────┬────────┘
+                        │
+                    ResNet18
+                        │
+                     512-dim
+                        │
+                        ▼
+
+         ───────── Feature Concatenation ─────────
+                        │
+                    (3072-dim)
+                        │
+                        ▼
+                Layer Normalization
+                        │
+                        ▼
+                 Attention Layer
+                        │
+                        ▼
+              Fully Connected Layers
+                        │
+                        ▼
+                Output (2 classes)
